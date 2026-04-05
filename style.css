@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252422;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar {
+  background-color: #403D39;
+  border-right: 3px solid #22d1c8;
+  padding: 20px;
+  min-width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-title {
+  font-family: 'Bitcount Mono', monospace;
+  font-size: 1rem;
+  color: #4CC9F0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 0 10px #4CC9F0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-label {
+  font-family: 'Bitcount Mono', monospace;
+  font-size: 0.9rem;
+  color: #F72585;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+hoverboard
+.total-boxes {
+  font-family: 'Bitcount Mono', monospace;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 0 5px #FFFFFF;
+  text-transform: uppercase;
+}
+
+.slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #252422 0%, #403D39 25%, #CCC5B9 50%, #EB5E28 75%, #FFFCF2 100%);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid #FFFCF2;
+  box-shadow: inset 0 0 8px rgba(255, 252, 242, 0.1);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFCF2;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 252, 242, 0.7);
+  border: 2px solid #403D39;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFCF2;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 252, 242, 0.7);
+  border: 2px solid #403D39;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 18px rgba(255, 252, 242, 0.9);
+}
+
+.slider::-moz-range-thumb:hover {
+  box-shadow: 0 0 18px rgba(255, 252, 242, 0.9);
+}
+
+.title {
+  font-family: 'Bitcount Grid Double', monospace;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: #FFFCF2;
+  margin-bottom: clamp(15px, 3vh, 30px);
+  text-shadow: 0 0 10px #EB5E28, 0 0 20px #403D39, 0 0 30px #EB5E28;
+  letter-spacing: 2px;
+  animation: titleGlow 2s ease-in-out infinite;
+  text-align: center;
+  width: 100%;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.4), 0 0 50px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  gap: 0;
+  padding: 0;
+  border: 3px solid;
+  border-image-slice: 1;
+  background: #403D39;
+  background-clip: padding-box;
+  position: relative;
+  animation: rgbRunningBorder 2s linear infinite;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+@keyframes rgbRunningBorder {
+  0% {
+    border-image-source: conic-gradient(from 0deg, #FF0000 0deg, #00FF00 90deg, #0000FF 180deg, #FF00FF 270deg, #FF0000 360deg);
+  }
+  100% {
+    border-image-source: conic-gradient(from 360deg, #FF0000 0deg, #00FF00 90deg, #0000FF 180deg, #FF00FF 270deg, #FF0000 360deg);
+  }
+}
+
+.square {
+  background-color: #1d1d1d;
+  box-shadow: 0 0 2px #000;
+  aspect-ratio: 1;
+  transition: 2s ease;
+}
+
+.square:hover {
+  transition-duration: 0s;
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .sidebar {
+    min-width: 150px;
+    padding: 15px;
+  }
+  
+  .main-wrapper {
+    padding: 15px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    max-height: 70vh;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    min-width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 3px solid #22d1c8;
+    padding: 15px;
+  }
+  
+  .main-wrapper {
+    padding: 10px;
+  }
+  
+  .title {
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+  
+  .container {
+    max-height: 60vh;
+  }
+}
