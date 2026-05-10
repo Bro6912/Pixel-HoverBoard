@@ -1,5 +1,5 @@
 # HoverBoard 
-### __**Creative HoverBoard Pixel**__
+### _**Creative HoverBoard Pixel**_
 I made this project inspired from one repo  
 I recreated with my own Special touch  
 
